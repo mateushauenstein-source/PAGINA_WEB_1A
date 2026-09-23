@@ -1,1 +1,34 @@
+img {
+  width: 80px;
+  height: 80px;
+}
 
+header {
+  background-color: #183C63;
+  color: #FFFFFF;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+main {
+  background-color: #FFFFFF;
+  color: #183C63;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+article {
+  display: flex;
+}
+
+div p {
+  font-weight: bold;
+}
+
+.artigo-autor {
+  font-weight: bold;
+}
