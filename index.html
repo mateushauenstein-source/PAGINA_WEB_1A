@@ -2,37 +2,126 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PaginaWeb</title>
+  <title>Sci Curious</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>PaginaWeb</h1>
-    <p>Modelo de Protótipo</p>
+
+  <!-- Fundo: Logo e Camada Escura -->
+  <div class="fundo">
+    <img src="logo.png" alt="Logo Sci Curious" class="logo-fundo">
+    <div class="mascara-escura"></div>
+  </div>
+
+  <!-- Camada para ajustar o brilho -->
+  <div id="brilho-overlay"></div>
+
+  <!-- MENU SUPERIOR -->
+  <header class="menu-topo">
+    <div class="esquerda">
+      <button onclick="abrirModal('modal-sobre')">Sobre Mim</button>
+      <button onclick="abrirModal('modal-saiba')">Saiba Mais</button>
+      <button onclick="abrirModal('modal-ref')">Referências</button>
+    </div>
+    <div class="direita">
+      <button onclick="abrirModal('modal-config')">⚙️ Configurações</button>
+    </div>
   </header>
-  <main>
-    <article>
-      <img src="  " alt=" Primeira Imagem ">
-      <div>
-        <h2>Primeiro tópico ou item da pesquisa</h2>
-        <p class="artigo-autor">Por: Nome do Aluno </p>
-        <p>Paragrafo com as informações esquisadas</p>
-        <button>❤️<span>0</span></button>
-        <button>👍<span>0</span></button>
-      </div>
-    </article>
-    <article>
-      <img src="  " alt=" Segunda Imagem  ">
-      <div>
-        <h2>Segundo Tópico ou  assunto da pesquisa</h2>
-        <p class="artigo-autor">Por: Nome do Aluno</p>
-        <p>Paragrafo com as informações pesquisadas</p>
-        <button>❤️<span>0</span></button>
-        <button>👍<span>0</span></button>
-      </div>
-    </article>
+
+  <!-- TELA INICIAL (SEM ROLAGEM) -->
+  <main id="tela-inicial">
+    <h1>SCI CURIOUS</h1>
+    <div class="caixa-texto">
+      <h2>Bem-vindo ao Universo da Ciência!</h2>
+      <p>Explore pesquisas sobre o cérebro, o universo e os dinossauros. Escolha um tema abaixo para começar!</p>
+    </div>
+
+    <!-- BOTÕES INFERIORES -->
+    <div class="botoes-temas">
+      <button onclick="abrirPesquisa('neuro')">🧠 Neurociência</button>
+      <button onclick="abrirPesquisa('astro')">🌌 Astrofísica</button>
+      <button onclick="abrirPesquisa('dino')">🦖 Dinossauros</button>
+    </div>
   </main>
+
+  <!-- TELA DE PESQUISAS (COM ROLAGEM) -->
+  <section id="tela-pesquisa" class="escondido">
+    
+    <!-- Neurociência -->
+    <article id="artigo-neuro" class="artigo escondido">
+      <h1>🧠 Neurociência</h1>
+      <p>[ Cole aqui o texto da pesquisa de Neurociência ]</p>
+      <img src="imagem-neuro.jpg" alt="Imagem Neurociência">
+      <p>[ Mais texto da pesquisa... ]</p>
+    </article>
+
+    <!-- Astrofísica -->
+    <article id="artigo-astro" class="artigo escondido">
+      <h1>🌌 Astrofísica</h1>
+      <p>[ Cole aqui o texto da pesquisa de Astrofísica ]</p>
+      <img src="imagem-astro.jpg" alt="Imagem Astrofísica">
+      <p>[ Mais texto da pesquisa... ]</p>
+    </article>
+
+    <!-- Dinossauros -->
+    <article id="artigo-dino" class="artigo escondido">
+      <h1>🦖 Dinossauros</h1>
+      <p>[ Cole aqui o texto da pesquisa de Dinossauros ]</p>
+      <img src="imagem-dino.jpg" alt="Imagem Dinossauros">
+      <p>[ Mais texto da pesquisa... ]</p>
+    </article>
+
+    <button class="btn-voltar" onclick="voltarInicio()">⬅️ Voltar ao Início</button>
+  </section>
+
+  <!-- MODAIS / JANELAS FLUTUANTES -->
+
+  <div id="modal-sobre" class="modal escondido">
+    <div class="conteudo-modal">
+      <span class="fechar" onclick="fecharModal('modal-sobre')">&times;</span>
+      <h2>Sobre Mim</h2>
+      <p>[ Seus dados e informações sobre você ]</p>
+    </div>
+  </div>
+
+  <div id="modal-saiba" class="modal escondido">
+    <div class="conteudo-modal">
+      <span class="fechar" onclick="fecharModal('modal-saiba')">&times;</span>
+      <h2>Saiba Mais</h2>
+      <p>[ Objetivo do site e processo de criação ]</p>
+    </div>
+  </div>
+
+  <div id="modal-ref" class="modal escondido">
+    <div class="conteudo-modal">
+      <span class="fechar" onclick="fecharModal('modal-ref')">&times;</span>
+      <h2>Referências (ABNT)</h2>
+      <p>[ Suas referências ABNT aqui ]</p>
+    </div>
+  </div>
+
+  <!-- MODAL CONFIGURAÇÕES -->
+  <div id="modal-config" class="modal escondido">
+    <div class="conteudo-modal">
+      <span class="fechar" onclick="fecharModal('modal-config')">&times;</span>
+      <h2>⚙️ Configurações</h2>
+
+      <p>🗣️ Voz Alta:</p>
+      <button onclick="lerTexto()">▶️ Ler Tela</button>
+      <button onclick="pararVoz()">⏹️ Parar</button>
+
+      <p>🔍 Tamanho do Texto:</p>
+      <button onclick="mudarTexto(2)">Aumentar A+</button>
+      <button onclick="mudarTexto(-2)">Diminuir A-</button>
+
+      <p>☀️ Brilho da Tela:</p>
+      <input type="range" min="0" max="0.7" step="0.1" value="0" oninput="ajustarBrilho(this.value)">
+
+      <p>🔊 Volume da Voz:</p>
+      <input type="range" id="vol-range" min="0" max="1" step="0.1" value="1">
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
