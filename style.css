@@ -161,3 +161,22 @@ button:hover {
 .escondido {
   display: none !important;
 }
+
+/* Título Principal (Astrofísica) - Grande e Destacado */
+.titulo-principal {
+  font-size: 2.5rem;          /* Tamanho grande */
+  color: #00d2ff;             /* Cor azul neon em destaque */
+  text-transform: uppercase;   /* Deixa todas as letras em maiúsculas */
+  text-align: center;         /* Centraliza o título principal */
+  margin-bottom: 25px;        /* Espaço em relação ao texto abaixo */
+}
+
+/* Subtítulos (O que é, Teoria das cordas, etc) - Médios e Organizados */
+.subtitulo {
+  font-size: 1.5rem;          /* Menor que o principal, mas maior que o texto normal */
+  color: #ffffff;             /* Cor branca para dar contraste */
+  margin-top: 30px;           /* Espaço antes do subtítulo */
+  margin-bottom: 10px;        /* Espaço depois do subtítulo */
+  border-bottom: 2px solid #00d2ff; /* Uma linha azul charmosa abaixo do subtítulo */
+  padding-bottom: 5px;
+}
